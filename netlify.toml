@@ -1,0 +1,4 @@
+[build]
+  base = "Tailwind-BargerWebsite-FullyResponsive-main"
+  command = "npm run build"
+  publish = "dist"
