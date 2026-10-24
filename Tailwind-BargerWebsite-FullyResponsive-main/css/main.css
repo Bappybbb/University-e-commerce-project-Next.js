@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* scroll up er jnno,because function kaj korcelo na,next a css kora */
+.-bottom-1\/2 {
+   bottom: -50%;
+}
+.bottom-4 {
+   bottom: 1rem;
+}
+
+
+
+
+ @layer base{
+     html{
+          @apply scroll-smooth;
+     }
+          body{
+              @apply  text-whiteColor bg-primaryColor  tracking-wider  font-dmsans   dark:bg-darkColor;
+          }
+
+          section{
+               @apply  pt-16 pb-4 md:pt-20    
+          }
+ }
+
+
+
+
+ @layer utilities{
+          .home__title,
+          .card__title,
+          .section__title
+          {
+                    @apply text-4xl font-oswald font-bold uppercase lg:text-6xl
+          }
+
+     .card__title{
+           @apply  text-xl;
+     }
+
+.section__title{
+     @apply  text-3xl
+}
+
+
+ 
+
+
+          .seperator{
+                    @apply  w-28   h-[2px] bg-secondaryColor my-5
+          }
+
+          .paragraph{
+                    @apply  text-paragraphColor text-xs leading-5
+          }
+ }
+
+
+
+
+.teb__wrap  ul li:hover,
+.teb__wrap ul li.active_wrap{
+     @apply   bg-secondaryColor  text-blackColor
+}
+
+
+
+
+
+
+
+
+ @layer components{
+          .btn{
+                    @apply inline-block text-sm  py-3 px-8 capitalize 
+                    text-center cursor-pointer rounded-md ease-linear
+                    duration-200 ;
+          }
+
+          .btn-primary{
+                    @apply text-blackColor bg-secondaryColor 
+                    hover:opacity-75
+          }
+ }
+
+
+
+ 

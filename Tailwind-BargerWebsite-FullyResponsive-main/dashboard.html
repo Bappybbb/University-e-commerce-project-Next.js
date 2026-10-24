@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f7fb" />
+    <title>Dashboard | Burger House</title>
+    <link rel="shortcut icon" href="./css/image/favicon.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <script type="module" src="./css/dashboard.js"></script>
+  </head>
+  <body>
+    <div class="dashboard-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="./index.html" aria-label="Burger House home">
+          <span class="brand-mark"><i class="ri-restaurant-2-line"></i></span>
+          <span><span class="brand-accent">BURGER HOUSE</span></span>
+        </a>
+
+        <div class="sidebar-label">WORKSPACE</div>
+        <nav class="side-nav" aria-label="Dashboard navigation">
+          <a class="side-link is-active" href="#overview">
+            <i class="ri-layout-grid-line"></i><span>Overview</span>
+          </a>
+          <a class="side-link" href="#orders">
+            <i class="ri-file-list-3-line"></i><span>Orders</span
+            ><span class="nav-count">8</span>
+          </a>
+          <a class="side-link" href="#menu">
+            <i class="ri-restaurant-line"></i><span>Menu</span>
+          </a>
+          <a class="side-link" href="#customers">
+            <i class="ri-user-3-line"></i><span>Customers</span>
+          </a>
+          <a class="side-link" href="#reports">
+            <i class="ri-bar-chart-box-line"></i><span>Reports</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-label tools-label">PREFERENCES</div>
+        <nav class="side-nav" aria-label="Preferences">
+          <a class="side-link" href="#settings">
+            <i class="ri-settings-3-line"></i><span>Settings</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="help-card">
+            <span class="help-icon"
+              ><i class="ri-customer-service-2-line"></i
+            ></span>
+            <strong>Need a hand?</strong>
+            <p>Our support team is here for you.</p>
+            <a href="mailto:hello@burgerhouse.example"
+              >Get support <i class="ri-arrow-right-line"></i
+            ></a>
+          </div>
+          <a class="store-link" href="./index.html">
+            <i class="ri-arrow-left-line"></i><span>Back to storefront</span>
+          </a>
+        </div>
+      </aside>
+
+      <div class="mobile-scrim" id="mobile-scrim"></div>
+
+      <main class="main-content" id="overview">
+        <header class="topbar">
+          <button
+            class="icon-button menu-toggle"
+            id="menu-toggle"
+            aria-label="Open navigation"
+            aria-expanded="false"
+          >
+            <i class="ri-menu-2-line"></i>
+          </button>
+          <div class="breadcrumbs">
+            <span>Workspace</span><i class="ri-arrow-right-s-line"></i
+            ><strong>Overview</strong>
+          </div>
+          <div class="topbar-actions">
+            <label class="search-box" for="global-search">
+              <i class="ri-search-line"></i>
+              <input
+                id="global-search"
+                type="search"
+                aria-label="Search orders"
+                placeholder="Search orders..."
+                autocomplete="off"
+              />
+              <kbd>Ctrl K</kbd>
+            </label>
+            <button
+              class="icon-button notification-button"
+              id="notification-button"
+              aria-label="Notifications"
+            >
+              <i class="ri-notification-3-line"></i><span></span>
+            </button>
+            <div
+              class="notification-message"
+              id="notification-message"
+              role="status"
+              hidden
+            >
+              You're all caught up.
+            </div>
+            <div class="profile">
+              <div class="avatar">JD</div>
+              <div class="profile-copy">
+                <strong>James Davis</strong><span>Restaurant owner</span>
+              </div>
+              <i class="ri-arrow-down-s-line profile-chevron"></i>
+            </div>
+          </div>
+        </header>
+
+        <div class="page-content">
+          <section class="welcome-row">
+            <div>
+              <p class="eyebrow">
+                <span class="live-dot"></span> <span id="dashboard-date"></span>
+              </p>
+              <h1>Good evening, James <span class="wave">✦</span></h1>
+              <p class="welcome-copy">
+                Here’s what’s happening at your restaurant today.
+              </p>
+            </div>
+            <button class="button button-primary" id="export-report">
+              <i class="ri-download-2-line"></i> Export report
+            </button>
+          </section>
+
+          <section class="stats-grid" aria-label="Today's key metrics">
+            <article class="stat-card">
+              <div class="stat-top">
+                <span class="stat-label">Total revenue</span
+                ><span class="stat-icon icon-yellow"
+                  ><i class="ri-wallet-3-line"></i
+                ></span>
+              </div>
+              <strong class="stat-value"
+                >$12,845<span class="cents">.00</span></strong
+              >
+              <div class="stat-foot">
+                <span class="trend positive"
+                  ><i class="ri-arrow-up-line"></i> 12.8%</span
+                ><span>vs. last week</span>
+              </div>
+              <div class="sparkline spark-yellow" aria-hidden="true">
+                <span style="--bar: 30%"></span><span style="--bar: 48%"></span
+                ><span style="--bar: 38%"></span><span style="--bar: 64%"></span
+                ><span style="--bar: 51%"></span><span style="--bar: 76%"></span
+                ><span style="--bar: 68%"></span
+                ><span style="--bar: 100%"></span>
+              </div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top">
+                <span class="stat-label">Orders received</span
+                ><span class="stat-icon icon-blue"
+                  ><i class="ri-shopping-bag-3-line"></i
+                ></span>
+              </div>
+              <strong class="stat-value">1,284</strong>
+              <div class="stat-foot">
+                <span class="trend positive"
+                  ><i class="ri-arrow-up-line"></i> 8.2%</span
+                ><span>vs. last week</span>
+              </div>
+              <div class="sparkline spark-blue" aria-hidden="true">
+                <span style="--bar: 42%"></span><span style="--bar: 35%"></span
+                ><span style="--bar: 58%"></span><span style="--bar: 48%"></span
+                ><span style="--bar: 70%"></span><span style="--bar: 62%"></span
+                ><span style="--bar: 82%"></span
+                ><span style="--bar: 100%"></span>
+              </div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top">
+                <span class="stat-label">Average order value</span
+                ><span class="stat-icon icon-purple"
+                  ><i class="ri-funds-line"></i
+                ></span>
+              </div>
+              <strong class="stat-value"
+                >$24<span class="cents">.60</span></strong
+              >
+              <div class="stat-foot">
+                <span class="trend positive"
+                  ><i class="ri-arrow-up-line"></i> 4.6%</span
+                ><span>vs. last week</span>
+              </div>
+              <div class="sparkline spark-purple" aria-hidden="true">
+                <span style="--bar: 36%"></span><span style="--bar: 52%"></span
+                ><span style="--bar: 44%"></span><span style="--bar: 68%"></span
+                ><span style="--bar: 57%"></span><span style="--bar: 74%"></span
+                ><span style="--bar: 66%"></span
+                ><span style="--bar: 100%"></span>
+              </div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top">
+                <span class="stat-label">Active customers</span
+                ><span class="stat-icon icon-green"
+                  ><i class="ri-group-line"></i
+                ></span>
+              </div>
+              <strong class="stat-value">846</strong>
+              <div class="stat-foot">
+                <span class="trend positive"
+                  ><i class="ri-arrow-up-line"></i> 6.1%</span
+                ><span>vs. last week</span>
+              </div>
+              <div class="sparkline spark-green" aria-hidden="true">
+                <span style="--bar: 32%"></span><span style="--bar: 46%"></span
+                ><span style="--bar: 42%"></span><span style="--bar: 60%"></span
+                ><span style="--bar: 52%"></span><span style="--bar: 78%"></span
+                ><span style="--bar: 72%"></span
+                ><span style="--bar: 100%"></span>
+              </div>
+            </article>
+          </section>
+
+          <section class="analytics-grid" id="reports">
+            <article class="panel revenue-panel">
+              <div class="panel-heading">
+                <div>
+                  <h2>Revenue overview</h2>
+                  <p>Your sales performance this week</p>
+                </div>
+                <span class="period-tag"
+                  >Last 7 days <i class="ri-calendar-2-line"></i
+                ></span>
+              </div>
+              <div class="revenue-legend">
+                <strong>$8,549.00</strong><span><i></i> Revenue</span
+                ><span class="muted-legend"><i></i> Expenses</span>
+              </div>
+              <div
+                class="chart"
+                role="img"
+                aria-label="Bar chart showing revenue and expenses from Monday to Sunday"
+              >
+                <div class="chart-y-axis">
+                  <span>$3k</span><span>$2k</span><span>$1k</span
+                  ><span>$0</span>
+                </div>
+                <div class="chart-body">
+                  <div class="chart-gridlines">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                  <div class="chart-columns">
+                    <div class="chart-column">
+                      <div class="bar-pair">
+                        <i class="bar expense" style="--height: 34%"></i
+                        ><i class="bar revenue" style="--height: 52%"></i>
+                      </div>
+                      <span>Mon</span>
+                    </div>
+                    <div class="chart-column">
+                      <div class="bar-pair">
+                        <i class="bar expense" style="--height: 40%"></i
+                        ><i class="bar revenue" style="--height: 68%"></i>
+                      </div>
+                      <span>Tue</span>
+                    </div>
+                    <div class="chart-column">
+                      <div class="bar-pair">
+                        <i class="bar expense" style="--height: 31%"></i
+                        ><i class="bar revenue" style="--height: 58%"></i>
+                      </div>
+                      <span>Wed</span>
+                    </div>
+                    <div class="chart-column">
+                      <div class="bar-pair">
+                        <i class="bar expense" style="--height: 48%"></i
+                        ><i class="bar revenue" style="--height: 76%"></i>
+                      </div>
+                      <span>Thu</span>
+                    </div>
+                    <div class="chart-column">
+                      <div class="bar-pair">
+                        <i class="bar expense" style="--height: 42%"></i
+                        ><i class="bar revenue" style="--height: 64%"></i>
+                      </div>
+                      <span>Fri</span>
+                    </div>
+                    <div class="chart-column">
+                      <div class="bar-pair">
+                        <i class="bar expense" style="--height: 55%"></i
+                        ><i class="bar revenue" style="--height: 91%"></i>
+                      </div>
+                      <span>Sat</span>
+                    </div>
+                    <div class="chart-column">
+                      <div class="bar-pair">
+                        <i class="bar expense" style="--height: 46%"></i
+                        ><i class="bar revenue" style="--height: 72%"></i>
+                      </div>
+                      <span>Sun</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel orders-summary" id="customers">
+              <div class="panel-heading">
+                <div>
+                  <h2>Order summary</h2>
+                  <p>Live order status</p>
+                </div>
+                <button
+                  class="icon-button subtle-button"
+                  aria-label="More order summary options"
+                >
+                  <i class="ri-more-2-fill"></i>
+                </button>
+              </div>
+              <div class="donut-wrap">
+                <div class="donut">
+                  <div><strong>1,284</strong><span>Total orders</span></div>
+                </div>
+              </div>
+              <div class="summary-legend">
+                <div>
+                  <span class="legend-name"
+                    ><i class="legend-dot dot-completed"></i>Completed</span
+                  ><strong>862 <small>67.1%</small></strong>
+                </div>
+                <div>
+                  <span class="legend-name"
+                    ><i class="legend-dot dot-pending"></i>Pending</span
+                  ><strong>286 <small>22.3%</small></strong>
+                </div>
+                <div>
+                  <span class="legend-name"
+                    ><i class="legend-dot dot-cancelled"></i>Cancelled</span
+                  ><strong>136 <small>10.6%</small></strong>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <section class="lower-grid">
+            <article class="panel orders-panel" id="orders">
+              <div class="panel-heading orders-heading">
+                <div>
+                  <h2>Recent orders</h2>
+                  <p>Keep track of your latest orders</p>
+                </div>
+                <a class="text-link" href="#orders"
+                  >View all <i class="ri-arrow-right-line"></i
+                ></a>
+              </div>
+              <div class="table-toolbar">
+                <label class="table-search" for="order-search"
+                  ><i class="ri-search-line"></i
+                  ><input
+                    id="order-search"
+                    type="search"
+                    aria-label="Search by order or customer"
+                    placeholder="Search by order or customer"
+                /></label>
+                <label class="select-wrap status-select">
+                  <span class="sr-only">Filter orders by status</span>
+                  <select id="status-filter">
+                    <option value="all">All status</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Preparing">Preparing</option>
+                    <option value="On the way">On the way</option>
+                    <option value="Cancelled">Cancelled</option>
+                  </select>
+                  <i class="ri-arrow-down-s-line"></i>
+                </label>
+              </div>
+              <div class="table-scroll">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Order ID</th>
+                      <th>Customer</th>
+                      <th>Date &amp; time</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="orders-body">
+                    <tr data-status="Preparing">
+                      <td><span class="order-id">#BH-1048</span></td>
+                      <td>
+                        <span class="customer-cell"
+                          ><span class="customer-avatar avatar-peach">AM</span
+                          >Alex Morgan</span
+                        >
+                      </td>
+                      <td>
+                        Oct 22, 2026 <span class="table-time">· 7:42 PM</span>
+                      </td>
+                      <td class="amount-cell">$38.50</td>
+                      <td>
+                        <span class="status-pill status-preparing"
+                          ><i></i>Preparing</span
+                        >
+                      </td>
+                    </tr>
+                    <tr data-status="Completed">
+                      <td><span class="order-id">#BH-1047</span></td>
+                      <td>
+                        <span class="customer-cell"
+                          ><span class="customer-avatar avatar-lilac">SK</span
+                          >Sophia Kim</span
+                        >
+                      </td>
+                      <td>
+                        Oct 22, 2026 <span class="table-time">· 7:36 PM</span>
+                      </td>
+                      <td class="amount-cell">$24.00</td>
+                      <td>
+                        <span class="status-pill status-completed"
+                          ><i></i>Completed</span
+                        >
+                      </td>
+                    </tr>
+                    <tr data-status="On the way">
+                      <td><span class="order-id">#BH-1046</span></td>
+                      <td>
+                        <span class="customer-cell"
+                          ><span class="customer-avatar avatar-mint">RJ</span
+                          >Ryan Johnson</span
+                        >
+                      </td>
+                      <td>
+                        Oct 22, 2026 <span class="table-time">· 7:21 PM</span>
+                      </td>
+                      <td class="amount-cell">$51.20</td>
+                      <td>
+                        <span class="status-pill status-transit"
+                          ><i></i>On the way</span
+                        >
+                      </td>
+                    </tr>
+                    <tr data-status="Completed">
+                      <td><span class="order-id">#BH-1045</span></td>
+                      <td>
+                        <span class="customer-cell"
+                          ><span class="customer-avatar avatar-blue">ET</span
+                          >Emma Taylor</span
+                        >
+                      </td>
+                      <td>
+                        Oct 22, 2026 <span class="table-time">· 7:08 PM</span>
+                      </td>
+                      <td class="amount-cell">$18.75</td>
+                      <td>
+                        <span class="status-pill status-completed"
+                          ><i></i>Completed</span
+                        >
+                      </td>
+                    </tr>
+                    <tr data-status="Cancelled">
+                      <td><span class="order-id">#BH-1044</span></td>
+                      <td>
+                        <span class="customer-cell"
+                          ><span class="customer-avatar avatar-yellow">ML</span
+                          >Michael Lee</span
+                        >
+                      </td>
+                      <td>
+                        Oct 22, 2026 <span class="table-time">· 6:54 PM</span>
+                      </td>
+                      <td class="amount-cell">$32.00</td>
+                      <td>
+                        <span class="status-pill status-cancelled"
+                          ><i></i>Cancelled</span
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p class="empty-state" id="empty-state" hidden>
+                  No orders match your search.
+                </p>
+              </div>
+            </article>
+
+            <article class="panel popular-panel" id="menu">
+              <div class="panel-heading">
+                <div>
+                  <h2>Popular items</h2>
+                  <p>Top sellers this week</p>
+                </div>
+                <a class="text-link" href="./index.html#menu"
+                  >Menu <i class="ri-arrow-right-line"></i
+                ></a>
+              </div>
+              <div class="popular-list">
+                <div class="popular-item">
+                  <span class="food-thumb"
+                    ><img src="./css/image/burger-1.png" alt=""
+                  /></span>
+                  <div class="food-copy">
+                    <strong>Classic Beef Burger</strong
+                    ><span>Food · 248 sold</span>
+                  </div>
+                  <strong class="food-price">$12.00</strong>
+                </div>
+                <div class="popular-item">
+                  <span class="food-thumb"
+                    ><img src="./css/image/snack-1.png" alt=""
+                  /></span>
+                  <div class="food-copy">
+                    <strong>Crispy French Fries</strong
+                    ><span>Snack · 186 sold</span>
+                  </div>
+                  <strong class="food-price">$6.50</strong>
+                </div>
+                <div class="popular-item">
+                  <span class="food-thumb"
+                    ><img src="./css/image/beverage-1.png" alt=""
+                  /></span>
+                  <div class="food-copy">
+                    <strong>Berry Smoothie</strong><span>Drink · 154 sold</span>
+                  </div>
+                  <strong class="food-price">$8.00</strong>
+                </div>
+              </div>
+              <div class="menu-note">
+                <i class="ri-lightbulb-flash-line"></i
+                ><span
+                  ><strong>Top tip</strong> Classic Beef Burger sales are up 18%
+                  this week.</span
+                >
+              </div>
+            </article>
+          </section>
+
+          <footer class="page-footer" id="settings">
+            <span
+              >© <span id="copyright-year"></span> Burger House. All rights
+              reserved.</span
+            >
+            <span
+              ><i class="ri-information-line"></i> Dashboard figures are sample
+              data</span
+            >
+          </footer>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
